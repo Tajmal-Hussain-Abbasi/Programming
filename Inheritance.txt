@@ -1,0 +1,84 @@
+#include<iostream>
+using namespace std;
+#include<cstdlib>
+const int LEN=80;
+class employee
+{
+private:
+char name[LEN];
+unsigned long number;
+public:
+void getdata()
+{
+     cout<<"\nEnter last Name"; cin>>name;
+     cout<<"\nEnter number"; cin>>number;
+}
+void putdata() const
+{
+    cout<<"\nName;"<<name;
+    cout<<"\nNumber:"<<number;
+}
+};
+class manager:public employee
+{
+private:
+char title[LEN];
+double dues;
+public:
+void getdata()
+{
+    employee::getdata();
+    cout<<"\nEnter Title:"; cin>>title;
+    cout<<"\nEnter Dues:"; cin>>dues;
+}
+void putdata() const
+{
+    employee::putdata();
+    cout<<"\ntitle:"<<title;
+    cout<<"\nGOlf club dues:"<<dues;
+}
+};
+class scientist : public employee
+{
+private:
+int pubs;
+public:
+void getdata()
+{
+    employee::getdata();
+    cout<<"\n Enter number of pubs: "; cin>>pubs;
+}
+    void pubdata() const
+{
+     employee::putdata();
+      cout<<"\n Number of PUblication: "<<pubs;
+}
+};
+class laborer : public employee
+{
+};
+int main()
+{
+manager m1, m2;
+scientist s1;
+laborer l1;
+cout<< endl;
+cout<<"\n Enter data for manager 1";
+m1.getdata();
+cout<<"\n Enter data for manager 2";
+m2.getdata();
+cout<<"\n Enter data for Scientist 1";
+s1.getdata();
+cout<<"\n Enter data for laborer 1";
+l1.getdata();
+cout<<"\nData on manager 1";
+m1.putdata();
+cout<<"\nData on manager 2";
+m2.putdata();
+cout<<"\nData on scientist 1";
+s1.putdata();
+cout<<"\nData on laborer 1";
+l1.putdata();
+cout<<endl;
+return 0;
+}
